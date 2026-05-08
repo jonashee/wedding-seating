@@ -27,11 +27,11 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
 #app.on{opacity:1}
 #sbar{position:relative;z-index:100;padding:.6rem .8rem .5rem;background:var(--cream);border-bottom:2px solid var(--navy-15);flex-shrink:0}
 .hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.4rem}
-.hdr-n{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;font-style:italic;color:var(--navy)}
-.hdr-l{font-size:.45rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-50)}
+.hdr-n{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;font-style:italic;color:var(--navy)}
+.hdr-l{font-size:.7rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-50)}
 .sw{position:relative}
-#si{width:100%;padding:.65rem .9rem .65rem 2.4rem;border:1.5px solid var(--navy-30);border-radius:0;background:var(--white);font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:300;color:var(--navy);letter-spacing:.04em;outline:0;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
-#si::placeholder{color:var(--txt-50);font-weight:200;font-size:.92rem}
+#si{width:100%;padding:.65rem .9rem .65rem 2.4rem;border:1.5px solid var(--navy-30);border-radius:0;background:var(--white);font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:300;color:var(--navy);letter-spacing:.04em;outline:0;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
+#si::placeholder{color:var(--txt-50);font-weight:200;font-size:1.2rem}
 #si:focus{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy-08)}
 .si-ic{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);width:16px;height:16px;opacity:.45;pointer-events:none}
 .si-x{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:0;border:0;font-size:1.4rem;color:var(--txt-50);cursor:pointer;display:none;padding:2px 6px;line-height:1}
@@ -101,43 +101,43 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
 </div>
 <script>
 const DATA=[
-{id:"sposi",label:"Tavolo Sposi",num:"♥",cap:11,shape:"round",r:32,x:340,y:145,guests:[
+{id:"sposi",label:"Tavolo Sposi",num:"♥",cap:11,shape:"round",r:32,x:340,y:170,guests:[
 {s:"Chiara",f:"Chiara"},{s:"Jonas",f:"Jonas"},{s:"David",f:"David"},{s:"Lena",f:"Lena"},
 {s:"Lucia",f:"Lucia"},{s:"Laura",f:"Laura"},{s:"Giulia",f:"Giulia"},
 {s:"Thomas",f:"Thomas"},{s:"Johanna",f:"Johanna"},{s:"Jonas D.",f:"Jonas Dubiel"},{s:"Judith",f:"Judith"}]},
-{id:"t1",label:"Tavolo 1",num:"1",cap:8,shape:"round",r:24,x:218,y:92,guests:[
+{id:"t1",label:"Tavolo 1",num:"1",cap:8,shape:"round",r:24,x:235,y:100,guests:[
 {s:"Martina F.",f:"Martina Fumagalli"},{s:"Martina E.",f:"Martina Esposito"},
 {s:"Iliana",f:"Iliana"},{s:"Lorenzo",f:"Lorenzo"},{s:"Francesca",f:"Francesca"},
 {s:"Minuk",f:"Minuk"},{s:"Michele",f:"Michele"},{s:"Paola",f:"Paola"}]},
-{id:"t2",label:"Tavolo 2",num:"2",cap:8,shape:"round",r:24,x:345,y:258,guests:[
+{id:"t2",label:"Tavolo 2",num:"2",cap:8,shape:"round",r:24,x:235,y:240,guests:[
 {s:"Filippo",f:"Filippo"},{s:"Barbara",f:"Barbara"},{s:"Max",f:"Max"},
 {s:"Celestina",f:"Celestina"},{s:"Charles",f:"Charles"},{s:"Riccarda",f:"Riccarda"}]},
-{id:"t3",label:"Tavolo 3",num:"3",cap:10,shape:"round",r:30,x:92,y:92,guests:[
-{s:"Teo",f:"Teo"},{s:"Priscilla",f:"Priscilla"},{s:"Cecilia",f:"Cecilia"},{s:"Yuri",f:"Yuri"},
+{id:"t3",label:"Tavolo 3",num:"3",cap:10,shape:"round",r:30,x:100,y:100,guests:[
+{s:"Matteo",f:"Matteo"},{s:"Priscilla",f:"Priscilla"},{s:"Cecilia",f:"Cecilia"},{s:"Yuri",f:"Yuri"},
 {s:"Martina A.",f:"Martina Andreotti"},{s:"Anna",f:"Anna"},
 {s:"Rebecca",f:"Rebecca"},{s:"Francesco",f:"Francesco"},{s:"Camilla",f:"Camilla"}]},
-{id:"t4",label:"Tavolo 4",num:"4",cap:10,shape:"round",r:30,x:218,y:228,guests:[
+{id:"t4",label:"Tavolo 4",num:"4",cap:10,shape:"round",r:30,x:100,y:240,guests:[
 {s:"Philipp",f:"Philipp"},{s:"Caroline",f:"Caroline"},{s:"Gabriel",f:"Gabriel"},
 {s:"Anja",f:"Anja"},{s:"Maurits",f:"Maurits"},{s:"Dorsa",f:"Dorsa"},
 {s:"Timo",f:"Timo"},{s:"Ellen",f:"Ellen"},{s:"Lotta",f:"Lotta"}]},
-{id:"t5",label:"Tavolo 5",num:"5",cap:10,shape:"round",r:30,x:92,y:238,guests:[
+{id:"t5",label:"Tavolo 5",num:"5",cap:10,shape:"round",r:30,x:100,y:400,guests:[
 {s:"Daniel",f:"Daniel"},{s:"Tobias",f:"Tobias"},{s:"Michael",f:"Michael"},
 {s:"Leoni",f:"Leoni"},{s:"Lennard",f:"Lennard"},{s:"Nora",f:"Nora"},
 {s:"Paolo",f:"Paolo"},{s:"Antonella",f:"Antonella"}]},
-{id:"t6",label:"Tavolo 6",num:"6",cap:10,shape:"round",r:30,x:100,y:398,guests:[
+{id:"t6",label:"Tavolo 6",num:"6",cap:10,shape:"round",r:30,x:235,y:400,guests:[
 {s:"Karin",f:"Karin"},{s:"Volker",f:"Volker"},{s:"Frank Hu.",f:"Frank Humml"},
 {s:"Annegret",f:"Annegret"},{s:"Georgia",f:"Georgia"},{s:"Per",f:"Per"},
 {s:"Frank He.",f:"Frank Heepen"},{s:"Roswitha",f:"Roswitha"},
 {s:"Bärbel",f:"Bärbel"},{s:"Frank N.",f:"Frank Nobis"}]},
-{id:"t7",label:"Tavolo 7",num:"7",cap:10,shape:"round",r:30,x:225,y:398,guests:[
+{id:"t7",label:"Tavolo 7",num:"7",cap:10,shape:"round",r:30,x:100,y:550,guests:[
 {s:"Carlo",f:"Carlo"},{s:"Maria G.",f:"Maria Grazia"},{s:"Graziella",f:"Graziella"},
 {s:"Massimo",f:"Massimo"},{s:"Rosa S.",f:"Rosa Silvestri"},{s:"Irene",f:"Irene"},
 {s:"Guido",f:"Guido"},{s:"Emma",f:"Emma"},{s:"Maria Si.",f:"Maria Silvestri"}]},
-{id:"t8",label:"Tavolo 8",num:"8",cap:14,shape:"oval",rx:72,ry:30,x:160,y:670,guests:[
+{id:"t8",label:"Tavolo 8",num:"8",cap:14,shape:"oval",rx:72,ry:30,x:165,y:680,guests:[
 {s:"Giovanni",f:"Giovanni"},{s:"Concetta",f:"Concetta"},{s:"Antonio",f:"Antonio"},
-{s:"Santa",f:"Santa"},{s:"Rosa M.",f:"Rosa Messinella"},{s:"Santa S.",f:"Santa Silvestri"},
+{s:"Santa",f:"Santa Sarlo"},{s:"Rosa M.",f:"Rosa Messinella"},{s:"Santa S.",f:"Santa Silvestri"},
 {s:"Mauro A.",f:"Mauro Anzaldi"},{s:"Maria Sc.",f:"Maria Scialabba"},{s:"Nina",f:"Nina"}]},
-{id:"t9",label:"Tavolo 9",num:"9",cap:10,shape:"round",r:30,x:155,y:510,guests:[
+{id:"t9",label:"Tavolo 9",num:"9",cap:10,shape:"round",r:30,x:235,y:550,guests:[
 {s:"Silvia",f:"Silvia"},{s:"Mauro Sc.",f:"Mauro Scialabba"},{s:"Diego",f:"Diego"},
 {s:"Elisa",f:"Elisa"},{s:"Mauro Sa.",f:"Mauro Sarlo"},{s:"Andrea",f:"Andrea"},
 {s:"Rosanna",f:"Rosanna"},{s:"Marcello",f:"Marcello"},{s:"Ambra",f:"Ambra"},{s:"Alessia",f:"Alessia"}]}
@@ -170,11 +170,9 @@ function fit(){
   const c=document.getElementById('mc'),cw=c.clientWidth,ch=c.clientHeight;
   // KEY FIX: fill the WIDTH first, then center vertically
   // This makes the map much bigger on phones
-  const scW=cw/VBW*.98;  // fill 98% of width
-  const scH=ch/VBH*.96;  // fill 96% of height
-  // Use the LARGER of the two (prioritize filling the screen)
-  // but cap at scW so it doesn't overflow horizontally
-  const sc=Math.min(scW, Math.max(scW, scH));
+  const scW=cw/VBW*.98;
+  const scH=ch/VBH*.96;
+  const sc=ch>cw ? scW : Math.min(scW,scH);
   const mapW=VBW*sc, mapH=VBH*sc;
   V={tx:(cw-mapW)/2, ty:Math.max(0,(ch-mapH)/2), sc};
   setT(true);zoomed=false;
@@ -192,8 +190,8 @@ mc.addEventListener('touchend',()=>{ts2=null},{passive:true});
 const si=document.getElementById('si'),sr=document.getElementById('sr'),sx2=document.getElementById('sx');
 si.addEventListener('input',()=>{const q=si.value.trim().toLowerCase();sx2.classList.toggle('on',q.length>0);if(q.length<1){sr.classList.remove('open');sr.innerHTML='';return}const m=IDX.filter(g=>g.fl.includes(q)).slice(0,10);if(!m.length){sr.innerHTML='<div class="ri" style="justify-content:center;color:var(--txt-50);font-size:.95rem;font-weight:200;cursor:default">Nessun risultato</div>';sr.classList.add('open');return}const esc=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');sr.innerHTML=m.map(g=>{const hl=g.f.replace(new RegExp(`(${esc})`,'gi'),'<mark>$1</mark>');return `<div class="ri" data-tid="${g.tid}" data-si="${g.si}" data-f="${encodeURIComponent(g.f)}" data-tl="${encodeURIComponent(g.tl)}"><span class="ri-n">${hl}</span><span class="ri-t">${g.tl}</span></div>`}).join('');sr.classList.add('open');sr.querySelectorAll('.ri[data-tid]').forEach(r=>r.addEventListener('click',()=>pick(r)))});
 sx2.addEventListener('click',()=>{si.value='';sx2.classList.remove('on');sr.classList.remove('open');clr();hideT();fit();si.focus()});
-function pick(el){const tid=el.dataset.tid,sii=+el.dataset.si,f=decodeURIComponent(el.dataset.f),tl=decodeURIComponent(el.dataset.tl);si.value=f;sr.classList.remove('open');si.blur();clr();const tgg=document.querySelector(`.tg[data-id="${tid}"]`);if(tgg)tgg.classList.add('hl');document.querySelectorAll(`.sc[data-tid="${tid}"][data-si="${sii}"]`).forEach(s=>s.classList.add('fd'));document.querySelectorAll(`.sn[data-tid="${tid}"][data-si="${sii}"]`).forEach(n=>{n.classList.add('vis','fl')});document.getElementById('tn').textContent=f;document.getElementById('tt').textContent=tl;document.getElementById('toast').classList.add('on');zoom(tid)}
-function clr(){document.querySelectorAll('.tg.hl').forEach(g=>g.classList.remove('hl'));document.querySelectorAll('.sc.fd').forEach(s=>s.classList.remove('fd'));document.querySelectorAll('.sn.fl').forEach(n=>n.classList.remove('fl'));document.querySelectorAll('.sn.vis').forEach(n=>n.classList.remove('vis'))}
+function pick(el){const tid=el.dataset.tid,sii=+el.dataset.si,f=decodeURIComponent(el.dataset.f),tl=decodeURIComponent(el.dataset.tl);si.value=f;sr.classList.remove('open');si.blur();clr();const tgg=document.querySelector(`.tg[data-id="${tid}"]`);if(tgg)tgg.classList.add('hl');document.querySelectorAll(`.sc[data-tid="${tid}"][data-si="${sii}"]`).forEach(s=>s.classList.add('fd'));document.querySelectorAll(`.sn[data-tid="${tid}"][data-si="${sii}"]`).forEach(n=>{n.classList.add('vis','fl')});document.getElementById('tn').textContent=f;document.getElementById('tt').textContent=tl;document.getElementById('toast').classList.add('on');clearTimeout(window._toastT);window._toastT=setTimeout(hideT,3000);zoom(tid)}
+function clr(){clearTimeout(window._toastT);document.querySelectorAll('.tg.hl').forEach(g=>g.classList.remove('hl'));document.querySelectorAll('.sc.fd').forEach(s=>s.classList.remove('fd'));document.querySelectorAll('.sn.fl').forEach(n=>n.classList.remove('fl'));document.querySelectorAll('.sn.vis').forEach(n=>n.classList.remove('vis'))}
 function hideT(){document.getElementById('toast').classList.remove('on')}
 document.getElementById('tx').addEventListener('click',()=>{hideT();clr();fit();si.value='';sx2.classList.remove('on')});
 document.getElementById('rbtn').addEventListener('click',()=>{clr();hideT();fit()});
