@@ -45,7 +45,7 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
 .ri-n mark{background:var(--lake);color:var(--navy);padding:0 2px;border-radius:1px}
 .ri-t{font-size:.65rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-50);white-space:nowrap;margin-left:.6rem}
 #mc{flex:1;overflow:hidden;position:relative;touch-action:none;background:var(--cream)}
-#ms{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:0 0;will-change:transform}
+#ms{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
 #ms.anim{transition:transform .6s cubic-bezier(.35,0,.15,1)}
 .wall{fill:none;stroke:var(--navy);stroke-width:1.8;opacity:.2}
 .rfill{fill:var(--white);opacity:.4}
@@ -101,32 +101,32 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
 </div>
 <script>
 const DATA=[
-{id:"sposi",label:"Tavolo Sposi",num:"♥",cap:11,shape:"round",r:32,x:245,y:170,guests:[
+{id:"sposi",label:"Tavolo Sposi",num:"♥",cap:11,shape:"round",r:32,x:245,y:170,zv:240,guests:[
 {s:"Jonas",f:"Jonas"},{s:"Jonas D.",f:"Jonas Dubiel"},{s:"Judith",f:"Judith"},{s:"Johanna",f:"Johanna"},{s:"Thomas",f:"Thomas"},{s:"David",f:"David"},{s:"Lena",f:"Lena"},{s:"Lucia",f:"Lucia"},{s:"Giulia",f:"Giulia"},{s:"Laura",f:"Laura"},{s:"Chiara",f:"Chiara"}]},
-{id:"t1",label:"Tavolo 1",num:"1",cap:10,shape:"round",r:30,x:370,y:100,guests:[
+{id:"t1",label:"Tavolo 1",num:"1",cap:10,shape:"round",r:30,x:370,y:100,zv:210,guests:[
 {s:"Martina F.",f:"Martina Fumagalli"},{s:"Martina E.",f:"Martina Esposito"},
 {s:"Iliana",f:"Iliana"},{s:"Michele",f:"Michele"},{s:"Lorenzo",f:"Lorenzo"},{s:"Francesca",f:"Francesca"},
 {s:"Minuk",f:"Minuk"},{s:"Paola",f:"Paola"},{s:"Filippo",f:"Filippo"},{s:"Barbara",f:"Barbara"}]},
-{id:"t2",label:"Tavolo 2",num:"2",cap:10,shape:"round",r:30,x:370,y:240,guests:[
+{id:"t2",label:"Tavolo 2",num:"2",cap:10,shape:"round",r:30,x:370,y:240,zv:210,guests:[
 {s:"Celestina",f:"Celestina"},{s:"Charles",f:"Charles"},{s:"Riccarda",f:"Riccarda"},{s:"Leoni",f:"Leoni"},{s:"Michael",f:"Michael"},{s:"Lennard",f:"Lennard"},{s:"Nora",f:"Nora"},{s:"Antonella",f:"Antonella"},{s:"Paolo",f:"Paolo"}]},
-{id:"t3",label:"Tavolo 3",num:"3",cap:10,shape:"round",r:30,x:110,y:100,guests:[
+{id:"t3",label:"Tavolo 3",num:"3",cap:10,shape:"round",r:30,x:110,y:100,zv:220,guests:[
 {s:"Matteo",f:"Matteo"},{s:"Priscilla",f:"Priscilla"},{s:"Cecilia",f:"Cecilia"},{s:"Yuri",f:"Yuri"},
 {s:"Martina A.",f:"Martina Andreotti"},{s:"Anna",f:"Anna"},{s:"Camilla",f:"Camilla"},{s:"Rebecca",f:"Rebecca"},{s:"Francesco",f:"Francesco"}]},
-{id:"t4",label:"Tavolo 4",num:"4",cap:10,shape:"round",r:30,x:110,y:240,guests:[
+{id:"t4",label:"Tavolo 4",num:"4",cap:10,shape:"round",r:30,x:110,y:240,zv:220,guests:[
 {s:"Caroline",f:"Caroline"},{s:"Philipp",f:"Philipp"},{s:"Max",f:"Max"},{s:"Gabriel",f:"Gabriel"},
 {s:"Anja",f:"Anja"},{s:"Dorsa",f:"Dorsa"},{s:"Maurits",f:"Maurits"},
 {s:"Timo",f:"Timo"},{s:"Lotta",f:"Lotta"},{s:"Ellen",f:"Ellen"}]},
-{id:"t5",label:"Tavolo 5",num:"5",cap:10,shape:"round",r:30,x:110,y:390,guests:[
+{id:"t5",label:"Tavolo 5",num:"5",cap:10,shape:"round",r:30,x:110,y:390,zv:220,guests:[
 {s:"Antonio",f:"Antonio"},{s:"Santa",f:"Santa Sarlo"},{s:"Rosa M.",f:"Rosa Messinella"},{s:"Santa S.",f:"Santa Silvestri"},
 {s:"Mauro A.",f:"Mauro Anzaldi"},{s:"Maria Sc.",f:"Maria Scialabba"},{s:"Giovanni",f:"Giovanni"},{s:"Concetta",f:"Concetta"},{s:"Nina",f:"Nina"}
 ]},
-{id:"t6",label:"Tavolo 6",num:"6",cap:10,shape:"round",r:30,x:245,y:390,guests:[
+{id:"t6",label:"Tavolo 6",num:"6",cap:10,shape:"round",r:30,x:245,y:390,zv:220,guests:[
 {s:"Annegret",f:"Annegret"},{s:"Frank Hu.",f:"Frank Humml"},{s:"Per",f:"Per"},{s:"Georgia",f:"Georgia"},{s:"Bärbel",f:"Bärbel"},{s:"Frank N.",f:"Frank Nobis"},{s:"Karin",f:"Karin"},{s:"Volker",f:"Volker"},{s:"Frank He.",f:"Frank Heepen"},{s:"Roswitha",f:"Roswitha"},]},
-{id:"t7",label:"Tavolo 7",num:"7",cap:10,shape:"round",r:30,x:180,y:540,guests:[
+{id:"t7",label:"Tavolo 7",num:"7",cap:10,shape:"round",r:30,x:180,y:540,zv:220,guests:[
 {s:"Carlo",f:"Carlo"},{s:"Maria G.",f:"Maria Grazia"},{s:"Graziella",f:"Graziella"},
 {s:"Massimo",f:"Massimo"},{s:"Rosa S.",f:"Rosa Silvestri"},{s:"Irene",f:"Irene"},
 {s:"Guido",f:"Guido"},{s:"Emma",f:"Emma"},{s:"Maria Si.",f:"Maria Silvestri"}]},
-{id:"t8",label:"Tavolo 8",num:"8",cap:14,shape:"oval",rx:72,ry:30,x:180,y:670,skip:[3,4,10,11],guests:[{s:"Silvia",f:"Silvia"},{s:"Mauro Sc.",f:"Mauro Scialabba"},{s:"Diego",f:"Diego"},{s:"Elisa",f:"Elisa"},{s:"Mauro Sa.",f:"Mauro Sarlo"},{s:"Andrea",f:"Andrea"},{s:"Rosanna",f:"Rosanna"},{s:"Marcello",f:"Marcello"},{s:"Ambra",f:"Ambra"},{s:"Alessia",f:"Alessia"}]}
+{id:"t8",label:"Tavolo 8",num:"8",cap:14,shape:"oval",rx:72,ry:30,x:180,y:670,zv:280,skip:[3,4,10,11],guests:[{s:"Silvia",f:"Silvia"},{s:"Mauro Sc.",f:"Mauro Scialabba"},{s:"Diego",f:"Diego"},{s:"Elisa",f:"Elisa"},{s:"Mauro Sa.",f:"Mauro Sarlo"},{s:"Andrea",f:"Andrea"},{s:"Rosanna",f:"Rosanna"},{s:"Marcello",f:"Marcello"},{s:"Ambra",f:"Ambra"},{s:"Alessia",f:"Alessia"}]}
 <!--,{id:"t9",label:"Tavolo 9",num:"9",cap:10,shape:"round",r:30,x:235,y:540,guests:[]}-->
 ];
 const R1={x:30,y:30,w:430,h:280},R2={x:30,y:310,w:295,h:440},VBW=440,VBH=780;
@@ -151,7 +151,7 @@ function seatXY(t){const o=[];for(let i=0;i<t.cap;i++){if(t.skip&&t.skip.include
 DATA.forEach(t=>{const g=mk('g',{class:'tg','data-id':t.id},tg);if(t.shape==='round')mk('circle',{class:'ts-shape',cx:t.x,cy:t.y,r:t.r},g);else mk('ellipse',{class:'ts-shape',cx:t.x,cy:t.y,rx:t.rx,ry:t.ry},g);const nm=mk('text',{class:'tnum',x:t.x,y:t.id==='sposi'?t.y:t.y-3},g);nm.textContent=t.num;if(t.id==='sposi'){const lb=mk('text',{class:'tlbl',x:t.x,y:t.y+15},g);lb.textContent='SPOSI'}const sp=seatXY(t);sp.forEach((p,i)=>{if(!p)return;const occ=i<t.guests.length;mk('circle',{class:'sc'+(occ?' occ':''),cx:p.x,cy:p.y,r:SR,'data-tid':t.id,'data-si':i},g);if(occ){const angle=Math.atan2(p.y-t.y,p.x-t.x),lx=p.x+Math.cos(angle)*LD,ly=p.y+Math.sin(angle)*LD;const sn=mk('text',{class:'sn',x:lx,y:ly,'data-tid':t.id,'data-si':i},g);sn.textContent=t.guests[i].s}});g.addEventListener('click',e=>{e.stopPropagation();zoom(t.id)})});
 
 let V={tx:0,ty:0,sc:1},zoomed=false;
-function setT(anim){if(anim){svg.classList.add('anim');const h=()=>{svg.classList.remove('anim');svg.removeEventListener('transitionend',h)};svg.addEventListener('transitionend',h)}else svg.classList.remove('anim');svg.style.transform=`translate(${V.tx}px,${V.ty}px) scale(${V.sc})`}
+function setT(anim){if(anim){svg.classList.add('anim');const h=()=>{svg.classList.remove('anim');svg.removeEventListener('transitionend',h)};svg.addEventListener('transitionend',h)}else svg.classList.remove('anim');svg.style.width=VBW*V.sc+'px';svg.style.height=VBH*V.sc+'px';svg.style.transform='translate('+V.tx+'px,'+V.ty+'px)';}
 
 function fit(){
   const c=document.getElementById('mc'),cw=c.clientWidth,ch=c.clientHeight;
@@ -167,7 +167,7 @@ function fit(){
   document.querySelectorAll('.sn').forEach(n=>n.classList.remove('vis','fl'));
 }
 
-function zoom(id){const t=DATA.find(d=>d.id===id);if(!t)return;const c=document.getElementById('mc'),cw=c.clientWidth,ch=c.clientHeight,sz=t.shape==='round'?t.r*2:Math.max(t.rx,t.ry)*2,vs=sz+160,sc=Math.min(cw,ch)/vs;V={tx:cw/2-t.x*sc,ty:ch/2-t.y*sc,sc};setT(true);zoomed=true;document.getElementById('rbtn').classList.add('on');document.querySelectorAll('.sn').forEach(n=>{if(n.dataset.tid===id)n.classList.add('vis');else if(!n.classList.contains('fl'))n.classList.remove('vis')})}
+function zoom(id){const t=DATA.find(d=>d.id===id);if(!t)return;const c=document.getElementById('mc'),cw=c.clientWidth,ch=c.clientHeight,viewSpan=t.zv||220,sc=Math.min(cw,ch)/viewSpan;V={tx:cw/2-t.x*sc,ty:ch/2-t.y*sc,sc};setT(true);zoomed=true;document.getElementById('rbtn').classList.add('on');document.querySelectorAll('.sn').forEach(n=>{if(n.dataset.tid===id)n.classList.add('vis');else if(!n.classList.contains('fl'))n.classList.remove('vis')})}
 
 let ts2=null;const mc=document.getElementById('mc');
 mc.addEventListener('touchstart',e=>{if(e.touches.length===1)ts2={sx:e.touches[0].clientX,sy:e.touches[0].clientY,ox:V.tx,oy:V.ty};else if(e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;ts2={p:true,d:Math.hypot(dx,dy),s0:V.sc,cx:(e.touches[0].clientX+e.touches[1].clientX)/2,cy:(e.touches[0].clientY+e.touches[1].clientY)/2}}},{passive:true});
