@@ -27,11 +27,11 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
 #app.on{opacity:1}
 #sbar{position:relative;z-index:100;padding:.6rem .8rem .5rem;background:var(--cream);border-bottom:2px solid var(--navy-15);flex-shrink:0}
 .hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.4rem}
-.hdr-n{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;font-style:italic;color:var(--navy)}
-.hdr-l{font-size:.7rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-50)}
+.hdr-n{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;font-style:italic;color:var(--navy)}
+.hdr-l{font-size:.45rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-50)}
 .sw{position:relative}
-#si{width:100%;padding:.65rem .9rem .65rem 2.4rem;border:1.5px solid var(--navy-30);border-radius:0;background:var(--white);font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:300;color:var(--navy);letter-spacing:.04em;outline:0;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
-#si::placeholder{color:var(--txt-50);font-weight:200;font-size:1.2rem}
+#si{width:100%;padding:.65rem .9rem .65rem 2.4rem;border:1.5px solid var(--navy-30);border-radius:0;background:var(--white);font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:300;color:var(--navy);letter-spacing:.04em;outline:0;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
+#si::placeholder{color:var(--txt-50);font-weight:200;font-size:.92rem}
 #si:focus{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy-08)}
 .si-ic{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);width:16px;height:16px;opacity:.45;pointer-events:none}
 .si-x{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:0;border:0;font-size:1.4rem;color:var(--txt-50);cursor:pointer;display:none;padding:2px 6px;line-height:1}
@@ -45,7 +45,7 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
 .ri-n mark{background:var(--lake);color:var(--navy);padding:0 2px;border-radius:1px}
 .ri-t{font-size:.65rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-50);white-space:nowrap;margin-left:.6rem}
 #mc{flex:1;overflow:hidden;position:relative;touch-action:none;background:var(--cream)}
-#ms{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:0 0;will-change:transform}
+#ms{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
 #ms.anim{transition:transform .6s cubic-bezier(.35,0,.15,1)}
 .wall{fill:none;stroke:var(--navy);stroke-width:1.8;opacity:.2}
 .rfill{fill:var(--white);opacity:.4}
@@ -81,7 +81,7 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
   <div class="sp-names">Chiara <span class="sp-amp">&</span> Jonas</div>
   <div class="sp-date">— 6 Giugno 2026 · Dongo, Lago di Como —</div>
   <div class="sp-div"></div>
-  <div class="sp-sub">Trova il tuo posto<br><br>Finde deinen Platz</div>
+  <div class="sp-sub">Trova il tuo posto · Finde deinen Platz</div>
   <button class="sp-btn" id="go">Entra · Eintreten</button>
   <svg class="sp-wave" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0,40Q100,15,200,40T400,40T600,40T800,40T1000,40T1200,40L1200,90L0,90Z" fill="var(--navy)" opacity=".5"/><path d="M0,55Q150,35,300,55T600,55T900,55T1200,55L1200,90L0,90Z" fill="var(--navy)" opacity=".3"/></svg>
 </div>
@@ -100,36 +100,50 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
   <button id="rbtn">↻</button>
 </div>
 <script>
+// ★ GUEST DATA — zv = zoom viewport (bigger = more zoomed out) ★
 const DATA=[
-{id:"sposi",label:"Tavolo Sposi",num:"♥",cap:11,shape:"round",r:32,x:245,y:170,guests:[
-{s:"Jonas",f:"Jonas"},{s:"Jonas D.",f:"Jonas Dubiel"},{s:"Judith",f:"Judith"},{s:"Johanna",f:"Johanna"},{s:"Thomas",f:"Thomas"},{s:"David",f:"David"},{s:"Lena",f:"Lena"},{s:"Lucia",f:"Lucia"},{s:"Giulia",f:"Giulia"},{s:"Laura",f:"Laura"},{s:"Chiara",f:"Chiara"}]},
-{id:"t1",label:"Tavolo 1",num:"1",cap:10,shape:"round",r:30,x:370,y:100,guests:[
+{id:"sposi",label:"Tavolo Sposi",num:"♥",cap:11,shape:"round",r:32,x:340,y:145,zv:240,guests:[
+{s:"Chiara",f:"Chiara"},{s:"Jonas",f:"Jonas"},{s:"David",f:"David"},{s:"Lena",f:"Lena"},
+{s:"Lucia",f:"Lucia"},{s:"Laura",f:"Laura"},{s:"Giulia",f:"Giulia"},
+{s:"Thomas",f:"Thomas"},{s:"Johanna",f:"Johanna"},{s:"Jonas D.",f:"Jonas D."},{s:"Judith",f:"Judith"}]},
+{id:"t1",label:"Tavolo 1",num:"1",cap:8,shape:"round",r:24,x:218,y:92,zv:210,guests:[
 {s:"Martina F.",f:"Martina Fumagalli"},{s:"Martina E.",f:"Martina Esposito"},
-{s:"Iliana",f:"Iliana"},{s:"Michele",f:"Michele"},{s:"Lorenzo",f:"Lorenzo"},{s:"Francesca",f:"Francesca"},
-{s:"Minuk",f:"Minuk"},{s:"Paola",f:"Paola"},{s:"Filippo",f:"Filippo"},{s:"Barbara",f:"Barbara"}]},
-{id:"t2",label:"Tavolo 2",num:"2",cap:10,shape:"round",r:30,x:370,y:240,guests:[
-{s:"Celestina",f:"Celestina"},{s:"Charles",f:"Charles"},{s:"Riccarda",f:"Riccarda"},{s:"Leoni",f:"Leoni"},{s:"Michael",f:"Michael"},{s:"Lennard",f:"Lennard"},{s:"Nora",f:"Nora"},{s:"Antonella",f:"Antonella"},{s:"Paolo",f:"Paolo"}]},
-{id:"t3",label:"Tavolo 3",num:"3",cap:10,shape:"round",r:30,x:110,y:100,guests:[
-{s:"Matteo",f:"Matteo"},{s:"Priscilla",f:"Priscilla"},{s:"Cecilia",f:"Cecilia"},{s:"Yuri",f:"Yuri"},
-{s:"Martina A.",f:"Martina Andreotti"},{s:"Anna",f:"Anna"},{s:"Camilla",f:"Camilla"},{s:"Rebecca",f:"Rebecca"},{s:"Francesco",f:"Francesco"}]},
-{id:"t4",label:"Tavolo 4",num:"4",cap:10,shape:"round",r:30,x:110,y:240,guests:[
-{s:"Caroline",f:"Caroline"},{s:"Philipp",f:"Philipp"},{s:"Max",f:"Max"},{s:"Gabriel",f:"Gabriel"},
-{s:"Anja",f:"Anja"},{s:"Dorsa",f:"Dorsa"},{s:"Maurits",f:"Maurits"},
-{s:"Timo",f:"Timo"},{s:"Lotta",f:"Lotta"},{s:"Ellen",f:"Ellen"}]},
-{id:"t5",label:"Tavolo 5",num:"5",cap:10,shape:"round",r:30,x:110,y:390,guests:[
-{s:"Antonio",f:"Antonio"},{s:"Santa",f:"Santa Sarlo"},{s:"Rosa M.",f:"Rosa Messinella"},{s:"Santa S.",f:"Santa Silvestri"},
-{s:"Mauro A.",f:"Mauro Anzaldi"},{s:"Maria Sc.",f:"Maria Scialabba"},{s:"Giovanni",f:"Giovanni"},{s:"Concetta",f:"Concetta"},{s:"Nina",f:"Nina"}
-]},
-{id:"t6",label:"Tavolo 6",num:"6",cap:10,shape:"round",r:30,x:245,y:390,guests:[
-{s:"Annegret",f:"Annegret"},{s:"Frank Hu.",f:"Frank Humml"},{s:"Per",f:"Per"},{s:"Georgia",f:"Georgia"},{s:"Bärbel",f:"Bärbel"},{s:"Frank N.",f:"Frank Nobis"},{s:"Karin",f:"Karin"},{s:"Volker",f:"Volker"},{s:"Frank He.",f:"Frank Heepen"},{s:"Roswitha",f:"Roswitha"},]},
-{id:"t7",label:"Tavolo 7",num:"7",cap:10,shape:"round",r:30,x:180,y:540,guests:[
+{s:"Iliana",f:"Iliana"},{s:"Lorenzo",f:"Lorenzo"},{s:"Franci",f:"Franci"},
+{s:"Minuk",f:"Minuk"},{s:"Michele",f:"Michele"},{s:"Paola",f:"Paola"}]},
+{id:"t2",label:"Tavolo 2",num:"2",cap:8,shape:"round",r:24,x:345,y:258,zv:210,guests:[
+{s:"Filippo",f:"Filippo"},{s:"Barbara",f:"Barbara"},{s:"Max",f:"Max"},
+{s:"Celestina",f:"Celestina"},{s:"Charles",f:"Charles"},{s:"Riccarda",f:"Riccarda"}]},
+{id:"t3",label:"Tavolo 3",num:"3",cap:10,shape:"round",r:30,x:92,y:92,zv:220,guests:[
+{s:"Teo",f:"Teo"},{s:"Priscilla",f:"Priscilla"},{s:"Cecilia",f:"Cecilia"},{s:"Yuri",f:"Yuri"},
+{s:"Martina A.",f:"Martina Andreotti"},{s:"Anna",f:"Anna"},
+{s:"Rebecca",f:"Rebecca"},{s:"Francesco",f:"Francesco"},{s:"Camilla",f:"Camilla"}]},
+{id:"t4",label:"Tavolo 4",num:"4",cap:10,shape:"round",r:30,x:218,y:228,zv:220,guests:[
+{s:"Philipp",f:"Philipp"},{s:"Caroline",f:"Caroline"},{s:"Gabriel",f:"Gabriel"},
+{s:"Anja",f:"Anja"},{s:"Maurits",f:"Maurits"},{s:"Dorsa",f:"Dorsa"},
+{s:"Timo",f:"Timo"},{s:"Ellen",f:"Ellen"},{s:"Lotta",f:"Lotta"}]},
+{id:"t5",label:"Tavolo 5",num:"5",cap:10,shape:"round",r:30,x:92,y:238,zv:220,guests:[
+{s:"Daniel",f:"Daniel"},{s:"Tobias",f:"Tobias"},{s:"Michael",f:"Michael"},
+{s:"Leonie",f:"Leonie"},{s:"Lennard",f:"Lennard"},{s:"Nora",f:"Nora"},
+{s:"Paolo",f:"Paolo"},{s:"Antonella",f:"Antonella"}]},
+{id:"t6",label:"Tavolo 6",num:"6",cap:10,shape:"round",r:30,x:100,y:398,zv:220,guests:[
+{s:"Karin",f:"Karin"},{s:"Volker",f:"Volker"},{s:"Frank Hu.",f:"Frank Humml"},
+{s:"Annegret",f:"Annegret"},{s:"Georgia",f:"Georgia"},{s:"Per",f:"Per"},
+{s:"Frank He.",f:"Frank Heepen"},{s:"Roswitha",f:"Roswitha"},
+{s:"Bärbel",f:"Bärbel"},{s:"Frank N.",f:"Frank Nobis"}]},
+{id:"t7",label:"Tavolo 7",num:"7",cap:10,shape:"round",r:30,x:225,y:398,zv:220,guests:[
 {s:"Carlo",f:"Carlo"},{s:"Maria G.",f:"Maria Grazia"},{s:"Graziella",f:"Graziella"},
 {s:"Massimo",f:"Massimo"},{s:"Rosa S.",f:"Rosa Silvestri"},{s:"Irene",f:"Irene"},
 {s:"Guido",f:"Guido"},{s:"Emma",f:"Emma"},{s:"Maria Si.",f:"Maria Silvestri"}]},
-{id:"t8",label:"Tavolo 8",num:"8",cap:14,shape:"oval",rx:72,ry:30,x:180,y:670,skip:[3,4,10,11],guests:[{s:"Silvia",f:"Silvia"},{s:"Mauro Sc.",f:"Mauro Scialabba"},{s:"Diego",f:"Diego"},{s:"Elisa",f:"Elisa"},{s:"Mauro Sa.",f:"Mauro Sarlo"},{s:"Andrea",f:"Andrea"},{s:"Rosanna",f:"Rosanna"},{s:"Marcello",f:"Marcello"},{s:"Ambra",f:"Ambra"},{s:"Alessia",f:"Alessia"}]}
-<!--,{id:"t9",label:"Tavolo 9",num:"9",cap:10,shape:"round",r:30,x:235,y:540,guests:[]}-->
+{id:"t8",label:"Tavolo 8",num:"8",cap:14,shape:"oval",rx:72,ry:30,x:160,y:670,zv:280,guests:[
+{s:"Giovanni",f:"Giovanni"},{s:"Concetta",f:"Concetta"},{s:"Antonio",f:"Antonio"},
+{s:"Santa",f:"Santa"},{s:"Rosa M.",f:"Rosa Messinella"},{s:"Santa S.",f:"Santa Silvestri"},
+{s:"Mauro A.",f:"Mauro Anzaldi"},{s:"Maria Sc.",f:"Maria Scialabba"},{s:"Nina",f:"Nina"}]},
+{id:"t9",label:"Tavolo 9",num:"9",cap:10,shape:"round",r:30,x:155,y:510,zv:220,guests:[
+{s:"Silvia",f:"Silvia"},{s:"Mauro Sc.",f:"Mauro Scialabba"},{s:"Diego",f:"Diego"},
+{s:"Elisa",f:"Elisa"},{s:"Mauro Sa.",f:"Mauro Sarlo"},{s:"Andrea",f:"Andrea"},
+{s:"Rosanna",f:"Rosanna"},{s:"Marcello",f:"Marcello"},{s:"Ambra",f:"Ambra"},{s:"Alessia",f:"Alessia"}]}
 ];
-const R1={x:30,y:30,w:430,h:280},R2={x:30,y:310,w:295,h:440},VBW=440,VBH=780;
+const R1={x:30,y:30,w:380,h:280},R2={x:30,y:310,w:265,h:440},VBW=440,VBH=780;
 const SP=16,SR=9,LD=21;
 const IDX=[];DATA.forEach(t=>{t.guests.forEach((g,i)=>{IDX.push({s:g.s,f:g.f,fl:g.f.toLowerCase(),tid:t.id,tl:t.label,si:i})})});
 const svg=document.getElementById('ms'),NS2="http://www.w3.org/2000/svg";
@@ -139,52 +153,80 @@ mk('rect',{class:'rfill',x:R1.x,y:R1.y,width:R1.w,height:R1.h,rx:2},rg);
 mk('rect',{class:'wall',x:R1.x,y:R1.y,width:R1.w,height:R1.h,rx:2},rg);
 mk('rect',{class:'rfill',x:R2.x,y:R2.y,width:R2.w,height:R2.h,rx:2},rg);
 mk('rect',{class:'wall',x:R2.x,y:R2.y,width:R2.w,height:R2.h,rx:2},rg);
-mk('line',{x1:R1.x+40,y1:R2.y,x2:R1.x+235,y2:R2.y,stroke:'var(--cream)','stroke-width':'5'},rg);
-const twcx=(260+R1.x+R1.w)/2;mk('line',{class:'wline',x1:twcx-45,y1:R1.y,x2:twcx+80,y2:R1.y},rg);
-const rwcy=R1.y+R1.h/2;mk('line',{class:'wline',x1:R1.x+R1.w,y1:rwcy-120,x2:R1.x+R1.w,y2:rwcy+120},rg);
-const bscx=(R1.x+190+R1.x+R1.w)/2;mk('line',{class:'wline',x1:bscx-20,y1:R2.y,x2:bscx+100,y2:R2.y},rg);
+mk('line',{x1:R1.x+1,y1:R2.y,x2:R1.x+190,y2:R2.y,stroke:'var(--cream)','stroke-width':'5'},rg);
+const twcx=(260+R1.x+R1.w)/2;mk('line',{class:'wline',x1:twcx-45,y1:R1.y,x2:twcx+45,y2:R1.y},rg);
+const rwcy=R1.y+R1.h/2;mk('line',{class:'wline',x1:R1.x+R1.w,y1:rwcy-70,x2:R1.x+R1.w,y2:rwcy+70},rg);
+const bscx=(R1.x+190+R1.x+R1.w)/2;mk('line',{class:'wline',x1:bscx-45,y1:R2.y,x2:bscx+45,y2:R2.y},rg);
 const r2rx=R2.x+R2.w;
-mk('line',{class:'wline',x1:r2rx,y1:R2.y+R2.h*.1,x2:r2rx,y2:R2.y+R2.h*.4},rg);
-mk('line',{class:'wline',x1:r2rx,y1:R2.y+R2.h*.6,x2:r2rx,y2:R2.y+R2.h*.9},rg);
+mk('line',{class:'wline',x1:r2rx,y1:R2.y+R2.h*.2,x2:r2rx,y2:R2.y+R2.h*.55},rg);
+mk('line',{class:'wline',x1:r2rx,y1:R2.y+R2.h*.62,x2:r2rx,y2:R2.y+R2.h*.82},rg);
 const tg=mk('g',{},svg);
-function seatXY(t){const o=[];for(let i=0;i<t.cap;i++){if(t.skip&&t.skip.includes(i)){o.push(null);continue;}const a=(2*Math.PI*i/t.cap)-Math.PI/2;if(t.shape==='round')o.push({x:t.x+Math.cos(a)*(t.r+SP),y:t.y+Math.sin(a)*(t.r+SP)});else o.push({x:t.x+Math.cos(a)*(t.rx+SP),y:t.y+Math.sin(a)*(t.ry+SP)})}return o}
-DATA.forEach(t=>{const g=mk('g',{class:'tg','data-id':t.id},tg);if(t.shape==='round')mk('circle',{class:'ts-shape',cx:t.x,cy:t.y,r:t.r},g);else mk('ellipse',{class:'ts-shape',cx:t.x,cy:t.y,rx:t.rx,ry:t.ry},g);const nm=mk('text',{class:'tnum',x:t.x,y:t.id==='sposi'?t.y:t.y-3},g);nm.textContent=t.num;if(t.id==='sposi'){const lb=mk('text',{class:'tlbl',x:t.x,y:t.y+15},g);lb.textContent='SPOSI'}const sp=seatXY(t);sp.forEach((p,i)=>{if(!p)return;const occ=i<t.guests.length;mk('circle',{class:'sc'+(occ?' occ':''),cx:p.x,cy:p.y,r:SR,'data-tid':t.id,'data-si':i},g);if(occ){const angle=Math.atan2(p.y-t.y,p.x-t.x),lx=p.x+Math.cos(angle)*LD,ly=p.y+Math.sin(angle)*LD;const sn=mk('text',{class:'sn',x:lx,y:ly,'data-tid':t.id,'data-si':i},g);sn.textContent=t.guests[i].s}});g.addEventListener('click',e=>{e.stopPropagation();zoom(t.id)})});
+function seatXY(t){const o=[];for(let i=0;i<t.cap;i++){const a=(2*Math.PI*i/t.cap)-Math.PI/2;if(t.shape==='round')o.push({x:t.x+Math.cos(a)*(t.r+SP),y:t.y+Math.sin(a)*(t.r+SP)});else o.push({x:t.x+Math.cos(a)*(t.rx+SP),y:t.y+Math.sin(a)*(t.ry+SP)})}return o}
+DATA.forEach(t=>{const g=mk('g',{class:'tg','data-id':t.id},tg);if(t.shape==='round')mk('circle',{class:'ts-shape',cx:t.x,cy:t.y,r:t.r},g);else mk('ellipse',{class:'ts-shape',cx:t.x,cy:t.y,rx:t.rx,ry:t.ry},g);const nm=mk('text',{class:'tnum',x:t.x,y:t.id==='sposi'?t.y:t.y-3},g);nm.textContent=t.num;if(t.id==='sposi'){const lb=mk('text',{class:'tlbl',x:t.x,y:t.y+15},g);lb.textContent='SPOSI'}const sp=seatXY(t);sp.forEach((p,i)=>{const occ=i<t.guests.length;mk('circle',{class:'sc'+(occ?' occ':''),cx:p.x,cy:p.y,r:SR,'data-tid':t.id,'data-si':i},g);if(occ){const angle=Math.atan2(p.y-t.y,p.x-t.x),lx=p.x+Math.cos(angle)*LD,ly=p.y+Math.sin(angle)*LD;const sn=mk('text',{class:'sn',x:lx,y:ly,'data-tid':t.id,'data-si':i},g);sn.textContent=t.guests[i].s}});g.addEventListener('click',e=>{e.stopPropagation();zoom(t.id)})});
 
+// ═══ PAN / ZOOM — fixed centering ═══
 let V={tx:0,ty:0,sc:1},zoomed=false;
-function setT(anim){if(anim){svg.classList.add('anim');const h=()=>{svg.classList.remove('anim');svg.removeEventListener('transitionend',h)};svg.addEventListener('transitionend',h)}else svg.classList.remove('anim');svg.style.transform=`translate(${V.tx}px,${V.ty}px) scale(${V.sc})`}
+
+function setT(anim){
+  if(anim){svg.classList.add('anim');const h=()=>{svg.classList.remove('anim');svg.removeEventListener('transitionend',h)};svg.addEventListener('transitionend',h)}
+  else svg.classList.remove('anim');
+  svg.style.width=VBW*V.sc+'px';
+  svg.style.height=VBH*V.sc+'px';
+  svg.style.transform='translate('+V.tx+'px,'+V.ty+'px)';
+}
 
 function fit(){
   const c=document.getElementById('mc'),cw=c.clientWidth,ch=c.clientHeight;
-  // KEY FIX: fill the WIDTH first, then center vertically
-  // This makes the map much bigger on phones
-  const scW=cw/VBW*.98;
-  const scH=ch/VBH*.96;
-  const sc=ch>cw ? scW : Math.min(scW,scH);
-  const mapW=VBW*sc, mapH=VBH*sc;
-  V={tx:(cw-mapW)/2, ty:Math.max(0,(ch-mapH)/2), sc};
+  // Fill width, allow vertical panning
+  const sc=cw/VBW*.98;
+  const mapH=VBH*sc;
+  V={tx:(cw-VBW*sc)/2, ty:Math.max(0,(ch-mapH)/2), sc:sc};
   setT(true);zoomed=false;
   document.getElementById('rbtn').classList.remove('on');
   document.querySelectorAll('.sn').forEach(n=>n.classList.remove('vis','fl'));
 }
 
-function zoom(id){const t=DATA.find(d=>d.id===id);if(!t)return;const c=document.getElementById('mc'),cw=c.clientWidth,ch=c.clientHeight,sz=t.shape==='round'?t.r*2:Math.max(t.rx,t.ry)*2,vs=sz+160,sc=Math.min(cw,ch)/vs;V={tx:cw/2-t.x*sc,ty:ch/2-t.y*sc,sc};setT(true);zoomed=true;document.getElementById('rbtn').classList.add('on');document.querySelectorAll('.sn').forEach(n=>{if(n.dataset.tid===id)n.classList.add('vis');else if(!n.classList.contains('fl'))n.classList.remove('vis')})}
+function zoom(id){
+  const t=DATA.find(d=>d.id===id);
+  if(!t)return;
+  const c=document.getElementById('mc'),cw=c.clientWidth,ch=c.clientHeight;
 
+  // Use per-table zv if set, otherwise auto-calculate
+  const viewSpan=t.zv||(t.shape==='round'?t.r*2+120:Math.max(t.rx,t.ry)*2+140);
+  const sc=Math.min(cw,ch)/viewSpan;
+
+  // Center the table in the container
+  V={
+    tx: cw/2 - t.x*sc,
+    ty: ch/2 - t.y*sc,
+    sc: sc
+  };
+  setT(true);zoomed=true;
+  document.getElementById('rbtn').classList.add('on');
+  document.querySelectorAll('.sn').forEach(n=>{
+    if(n.dataset.tid===id)n.classList.add('vis');
+    else if(!n.classList.contains('fl'))n.classList.remove('vis');
+  });
+}
+
+// Touch
 let ts2=null;const mc=document.getElementById('mc');
 mc.addEventListener('touchstart',e=>{if(e.touches.length===1)ts2={sx:e.touches[0].clientX,sy:e.touches[0].clientY,ox:V.tx,oy:V.ty};else if(e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;ts2={p:true,d:Math.hypot(dx,dy),s0:V.sc,cx:(e.touches[0].clientX+e.touches[1].clientX)/2,cy:(e.touches[0].clientY+e.touches[1].clientY)/2}}},{passive:true});
 mc.addEventListener('touchmove',e=>{if(!ts2)return;if(ts2.p&&e.touches.length===2){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY,d=Math.hypot(dx,dy),ns=Math.max(.25,Math.min(12,ts2.s0*(d/ts2.d))),r=ns/V.sc;V.tx=ts2.cx-(ts2.cx-V.tx)*r;V.ty=ts2.cy-(ts2.cy-V.ty)*r;V.sc=ns;setT(false);zoomed=true;document.getElementById('rbtn').classList.add('on')}else if(!ts2.p&&e.touches.length===1){V.tx=ts2.ox+(e.touches[0].clientX-ts2.sx);V.ty=ts2.oy+(e.touches[0].clientY-ts2.sy);setT(false)}},{passive:true});
 mc.addEventListener('touchend',()=>{ts2=null},{passive:true});
 
+// Search
 const si=document.getElementById('si'),sr=document.getElementById('sr'),sx2=document.getElementById('sx');
-si.addEventListener('input',()=>{const q=si.value.trim().toLowerCase();sx2.classList.toggle('on',q.length>0);if(q.length<1){sr.classList.remove('open');sr.innerHTML='';return}const m=IDX.filter(g=>g.fl.includes(q)).slice(0,10);if(!m.length){sr.innerHTML='<div class="ri" style="justify-content:center;color:var(--txt-50);font-size:.95rem;font-weight:200;cursor:default">Nessun risultato</div>';sr.classList.add('open');return}const esc=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');sr.innerHTML=m.map(g=>{const hl=g.f.replace(new RegExp(`(${esc})`,'gi'),'<mark>$1</mark>');return `<div class="ri" data-tid="${g.tid}" data-si="${g.si}" data-f="${encodeURIComponent(g.f)}" data-tl="${encodeURIComponent(g.tl)}"><span class="ri-n">${hl}</span><span class="ri-t">${g.tl}</span></div>`}).join('');sr.classList.add('open');sr.querySelectorAll('.ri[data-tid]').forEach(r=>r.addEventListener('click',()=>pick(r)))});
-sx2.addEventListener('click',()=>{si.value='';sx2.classList.remove('on');sr.classList.remove('open');clr();hideT();fit();si.focus()});
-function pick(el){const tid=el.dataset.tid,sii=+el.dataset.si,f=decodeURIComponent(el.dataset.f),tl=decodeURIComponent(el.dataset.tl);si.value=f;sr.classList.remove('open');si.blur();clr();const tgg=document.querySelector(`.tg[data-id="${tid}"]`);if(tgg)tgg.classList.add('hl');document.querySelectorAll(`.sc[data-tid="${tid}"][data-si="${sii}"]`).forEach(s=>s.classList.add('fd'));document.querySelectorAll(`.sn[data-tid="${tid}"][data-si="${sii}"]`).forEach(n=>{n.classList.add('vis','fl')});document.getElementById('tn').textContent=f;document.getElementById('tt').textContent=tl;document.getElementById('toast').classList.add('on');clearTimeout(window._toastT);window._toastT=setTimeout(hideT,3000);zoom(tid)}
-function clr(){clearTimeout(window._toastT);document.querySelectorAll('.tg.hl').forEach(g=>g.classList.remove('hl'));document.querySelectorAll('.sc.fd').forEach(s=>s.classList.remove('fd'));document.querySelectorAll('.sn.fl').forEach(n=>n.classList.remove('fl'));document.querySelectorAll('.sn.vis').forEach(n=>n.classList.remove('vis'))}
+si.addEventListener('input',()=>{const q=si.value.trim().toLowerCase();sx2.classList.toggle('on',q.length>0);if(q.length<1){sr.classList.remove('open');sr.innerHTML='';return}const m=IDX.filter(g=>g.fl.includes(q)).slice(0,10);if(!m.length){sr.innerHTML='<div class="ri" style="justify-content:center;color:var(--txt-50);font-size:.95rem;font-weight:200;cursor:default">Nessun risultato</div>';sr.classList.add('open');return}const esc=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');sr.innerHTML=m.map(g=>{const hl=g.f.replace(new RegExp('('+esc+')','gi'),'<mark>$1</mark>');return '<div class="ri" data-tid="'+g.tid+'" data-si="'+g.si+'" data-f="'+encodeURIComponent(g.f)+'" data-tl="'+encodeURIComponent(g.tl)+'"><span class="ri-n">'+hl+'</span><span class="ri-t">'+g.tl+'</span></div>'}).join('');sr.classList.add('open');sr.querySelectorAll('.ri[data-tid]').forEach(function(r){r.addEventListener('click',function(){pick(r)})})});
+sx2.addEventListener('click',function(){si.value='';sx2.classList.remove('on');sr.classList.remove('open');clr();hideT();fit();si.focus()});
+function pick(el){var tid=el.dataset.tid,sii=+el.dataset.si,f=decodeURIComponent(el.dataset.f),tl=decodeURIComponent(el.dataset.tl);si.value=f;sr.classList.remove('open');si.blur();clr();var tgg=document.querySelector('.tg[data-id="'+tid+'"]');if(tgg)tgg.classList.add('hl');document.querySelectorAll('.sc[data-tid="'+tid+'"][data-si="'+sii+'"]').forEach(function(s){s.classList.add('fd')});document.querySelectorAll('.sn[data-tid="'+tid+'"][data-si="'+sii+'"]').forEach(function(n){n.classList.add('vis','fl')});document.getElementById('tn').textContent=f;document.getElementById('tt').textContent=tl;document.getElementById('toast').classList.add('on');zoom(tid)}
+function clr(){document.querySelectorAll('.tg.hl').forEach(function(g){g.classList.remove('hl')});document.querySelectorAll('.sc.fd').forEach(function(s){s.classList.remove('fd')});document.querySelectorAll('.sn.fl').forEach(function(n){n.classList.remove('fl')});document.querySelectorAll('.sn.vis').forEach(function(n){n.classList.remove('vis')})}
 function hideT(){document.getElementById('toast').classList.remove('on')}
-document.getElementById('tx').addEventListener('click',()=>{hideT();clr();fit();si.value='';sx2.classList.remove('on')});
-document.getElementById('rbtn').addEventListener('click',()=>{clr();hideT();fit()});
-document.addEventListener('click',e=>{if(!e.target.closest('.sw'))sr.classList.remove('open')});
-document.getElementById('go').addEventListener('click',()=>{document.getElementById('splash').classList.add('out');document.getElementById('app').classList.add('on');setTimeout(fit,60)});
-let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(document.getElementById('app').classList.contains('on')&&!zoomed)fit()},120)});
+document.getElementById('tx').addEventListener('click',function(){hideT();clr();fit();si.value='';sx2.classList.remove('on')});
+document.getElementById('rbtn').addEventListener('click',function(){clr();hideT();fit()});
+document.addEventListener('click',function(e){if(!e.target.closest('.sw'))sr.classList.remove('open')});
+document.getElementById('go').addEventListener('click',function(){document.getElementById('splash').classList.add('out');document.getElementById('app').classList.add('on');setTimeout(fit,60)});
+var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if(document.getElementById('app').classList.contains('on')&&!zoomed)fit()},120)});
 </script>
 </body>
 </html>
