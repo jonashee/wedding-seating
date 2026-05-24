@@ -95,7 +95,7 @@ html,body{height:100dvh;overflow:hidden;font-family:'Josefin Sans',sans-serif;ba
       <div id="sr"></div>
     </div>
   </div>
-  <div id="mc"><svg id="ms" viewBox="0 0 440 780" xmlns="http://www.w3.org/2000/svg"></svg></div>
+  <div id="mc"><svg id="ms" viewBox="0 0 470 780" xmlns="http://www.w3.org/2000/svg"></svg></div>
   <div id="toast"><div class="ti"><div class="ti-n" id="tn"></div><div class="ti-t" id="tt"></div></div><button class="ti-x" id="tx">×</button></div>
   <button id="rbtn">↻</button>
 </div>
@@ -128,7 +128,7 @@ const DATA=[
 {id:"t8",label:"Tavolo 8",num:"8",cap:14,shape:"oval",rx:72,ry:30,x:180,y:670,zv:280,skip:[3,4,10,11],guests:[{s:"Rosanna",f:"Rosanna"},{s:"Alessia",f:"Alessia"},{s:"Silvia",f:"Silvia"},{s:"Diego",f:"Diego"},{s:"Mauro Sc.",f:"Mauro Scialabba"},{s:"Elisa",f:"Elisa"},{s:"Andrea",f:"Andrea"},{s:"Mauro Sa.",f:"Mauro Sarlo"},{s:"Marcello",f:"Marcello"},{s:"Ambra",f:"Ambra"}]}
 <!--,{id:"t9",label:"Tavolo 9",num:"9",cap:10,shape:"round",r:30,x:235,y:540,guests:[]}-->
 ];
-const R1={x:30,y:30,w:430,h:280},R2={x:30,y:310,w:295,h:440},VBW=440,VBH=780;
+const R1={x:30,y:30,w:430,h:280},R2={x:30,y:310,w:295,h:440},VBW=470,VBH=780;
 const SP=16,SR=9,LD=21;
 const IDX=[];DATA.forEach(t=>{t.guests.forEach((g,i)=>{IDX.push({s:g.s,f:g.f,fl:g.f.toLowerCase(),tid:t.id,tl:t.label,si:i})})});
 const svg=document.getElementById('ms'),NS2="http://www.w3.org/2000/svg";
